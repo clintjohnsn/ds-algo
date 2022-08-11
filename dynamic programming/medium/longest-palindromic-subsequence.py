@@ -1,4 +1,4 @@
-
+# https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/
 #  length of the longest palindromic subsequence 
 #  “BBABCBCAB”, then the output should be 7 as “BABCBAB” is the longest palindromic subsequence in it
 #  2^n subsequences, O(n) to check if palindrome
