@@ -84,3 +84,4 @@ print(quickselect(ar,k,0,len(ar)-1)[:k])
 
 # Method 5(Creating a BST and Getting K greatest Elements):
 # In this approach, we will create a Binary Search Tree and then we will print K greatest elements of it.
+# TODO: BST

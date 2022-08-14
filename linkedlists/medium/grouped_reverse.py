@@ -48,7 +48,7 @@ class LinkedList:
         count = 0
         curr = self.head
         while curr is not None:
-            stack.append(curr) # T=O(n); use real stack instead for O(1)
+            stack.append(curr) # T=O(n); use dequeue as stack instead for O(1)
             count +=1
             if count == k:
                 while count > 0:

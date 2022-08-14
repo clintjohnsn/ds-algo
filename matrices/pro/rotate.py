@@ -19,12 +19,35 @@
 # 8: 2,1 - 1,2
 # 6: 1,2 - 0,1
 
-def rotate(M,n):
-    i,j = 0,0
+def rt(M,i,j):
+    pass    
+
+def rotate(M):
+    n = len(M)
+    rt(M,0,n-1)
 
 
+def printm(M):
+    n = len(M)
+    for i in range(n):
+        print()
+        for j in range(n):
+            print(M[i][j],end='')
 
-
-# driver
-matrix = [[1,2,3],[4,5,6],[7,8,9]]
-rotate(matrix,len(matrix))
+# # driver
+mat = [[1, 2, 3, 4],
+       [5, 6, 7, 8],
+       [9, 10, 11, 12],
+       [13, 14, 15, 16]]
+ 
+# Test case 2
+mat2 = [ [1, 2, 3 ],
+        [4, 5, 6 ],
+        [7, 8, 9 ] ]
+ 
+# Test case 3
+mat3 = [ [1, 2 ],
+        [4, 5 ] ]
+         
+rotate(mat)
+printm(mat)
