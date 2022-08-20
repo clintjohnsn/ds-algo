@@ -47,3 +47,7 @@ e = [ 10, 12 ]
 x = [ 18, 7 ] # ans 35
 
 print(assembly_line_scheduling())
+
+"""
+TODO: bottom up approach
+"""
