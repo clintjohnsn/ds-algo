@@ -36,6 +36,8 @@ Get a pointer to the last node of the loop and make the next of it NULL.
 T = O(n)
 
 """
+from typing import Optional
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -58,6 +60,47 @@ class LinkedList:
             temp = temp.next
         print()
 
+    def getCycleHead(self, head: Optional[Node]) -> Optional[Node]:
+        """
+        detect cycle and return the head of the cycle
+        :param head:
+        :return:
+        """
+        # empty
+        if not head:
+            return None
+        # 1 element
+        if head.next is None:
+            return None
+        if head.next == head:
+            return head
+        # 2 or more
+        slow, fast = head, head.next
+        while slow and fast and slow != fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        if slow != fast:
+            # no cycle
+            return None
+        else:
+            # find size of cycle
+            loopsize = 1
+            temp = slow
+            while temp.next != slow:
+                loopsize +=1
+                temp = temp.next
+            # use two pointers
+            slow,fast = head,head
+            i = 0
+            # fast "loopsize" ahead
+            while i < loopsize:
+                fast = fast.next
+                i+=1
+            # catch up slow to fast
+            while slow != fast:
+                slow = slow.next
+                fast = fast.next
+            return slow
 
 def floyd_detect_loop(list):
     slow_p = list.head

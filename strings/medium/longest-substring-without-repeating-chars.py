@@ -31,7 +31,7 @@ def longestUniqueSubsttr(string):
 	# Start from the second character. First character is already
 	# processed (cur_len and max_len are initialized as 1, and
 	# visited[str[0]] is set
-	for i in xrange(1,n):
+	for i in range(1,n):
 		prev_index = visited[ord(string[i])]
 
 		# If the current character is not present in the already
@@ -64,7 +64,7 @@ def longestUniqueSubsttr(string):
 
 # Driver program to test the above function
 string = "ABDEFGABEF"
-print "The input string is " + string
+print("The input string is " + string)
 length = longestUniqueSubsttr(string)
 print ("The length of the longest non-repeating character" +
 	" substring is " + str(length))
@@ -75,3 +75,23 @@ print ("The length of the longest non-repeating character" +
 # lowercase English characters then value of d is 26.
 #
 # Auxiliary Space: O(d)
+
+
+def lengthOfLongestSubstring(self, s: str) -> int:
+	hm = dict()
+	k = -1
+	maxstr = 0
+	for i in range(len(s)):
+		if s[i] not in hm:
+			hm[s[i]] = i
+		else:
+			k = max(k, hm[s[i]])
+			hm[s[i]] = i
+		maxstr = max(maxstr, i - k)
+	return maxstr
+
+"""
+if we know that the charset is rather small, we can mimic what a HashSet/HashMap does with a boolean/integer array as direct access table. 
+Though the time complexity of query or insertion is still O(1), the constant factor is smaller in an array than in a HashMap/HashSet. 
+Thus, we can achieve a shorter runtime by the replacement here.
+"""

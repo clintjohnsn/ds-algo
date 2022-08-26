@@ -40,15 +40,11 @@ for _ in range(T):
 #         print(max(ar))
 
 
-# another method of solving all negative problem
-# T = int(input())
-# for _ in range(T):
-#     summ = 0
-#     n = int(input())
-#     ar = [int(x) for x in input().split()]
-#     gmax = ar[0]
-#     maxtillhere= ar[0]
-#     for i in ar[1:]:
-#         maxtillhere = max(i,maxtillhere + i)
-#         gmax = max(maxtillhere, gmax)
-#     print(gmax)
+def maxSubArray(self, nums: list[int]) -> int:
+    s= float("-inf")
+    maxsum = float("-inf")
+    for i in range(len(nums)):
+        s = max(nums[i],s+ nums[i])
+        maxsum = max(maxsum,s)
+    return maxsum
+
