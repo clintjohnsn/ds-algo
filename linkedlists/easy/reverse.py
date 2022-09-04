@@ -110,3 +110,27 @@ print()
 print("tail recursive reversed:")
 llist.reverse_tail_recursive()
 llist.printList()
+
+
+"""
+Leetcode 206
+iterative reverse
+
+"""
+from typing import Optional
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next:
+            return head
+        temp = head
+        prev = None
+        while temp:
+            nextnode = temp.next
+            temp.next = prev
+            prev = temp
+            temp = nextnode
+        return prev
