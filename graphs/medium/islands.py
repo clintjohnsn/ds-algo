@@ -52,3 +52,35 @@ print (g.countIslands())
 
 # Time complexity: O(mn)
 # Auxiliary Space: O(mn)
+
+"""
+Leetcode 200
+count no of islands
+horizontal + vertical connection only
+
+"""
+class Solution:
+    def dfs(self, grid: list[list[str]], i: int, j: int):
+        if 0 <= i < len(grid) and 0 <= j < len(grid[i]) and grid[i][j] == "1":
+            grid[i][j] = "0"
+            self.dfs(grid, i + 1, j)
+            self.dfs(grid, i - 1, j)
+            self.dfs(grid, i, j + 1)
+            self.dfs(grid, i, j - 1)
+
+    def numIslands(self, grid: list[list[str]]) -> int:
+        count = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                if grid[i][j] == "1":
+                    count += 1
+                    self.dfs(grid, i, j)
+        return count
+
+grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+print(Solution().numIslands(grid))

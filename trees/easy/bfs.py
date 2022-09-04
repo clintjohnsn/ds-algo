@@ -53,3 +53,32 @@ root.right.right = Node(7)
 
 printLevelOrder(root)
 print(levelOrder(root))
+
+
+"""
+n-ary tree level order traversal
+
+"""
+
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+
+from collections import deque
+class Solution:
+    def levelOrder(self, root: Node) -> list[list[int]]:
+        dq = deque()
+        output = list()
+        if not root:
+            return root
+        dq.append([root])
+        while dq:
+            level = dq.popleft()
+            output.append([node.val for node in level])
+            nextlevel = list()
+            for node in level:
+                nextlevel.extend(node.children)
+            if nextlevel:
+                dq.append(nextlevel)
+        return output
