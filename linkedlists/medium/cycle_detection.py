@@ -103,8 +103,8 @@ class LinkedList:
             return slow
 
 def floyd_detect_loop(list):
-    slow_p = list.head
-    fast_p = list.head
+    slow_p = list.test
+    fast_p = list.test
     while(slow_p and fast_p and fast_p.next):
         slow_p = slow_p.next
         fast_p = fast_p.next.next
@@ -122,12 +122,12 @@ def fix_loop(list):
             length += 1
             temp = temp.next
         # set a pointer at dist of length from head
-        ptr = list.head
+        ptr = list.test
         while(length>0):
             length -=1
             ptr = ptr.next
         # move the head pointer and ptr till they meet at start of loop
-        temp = list.head
+        temp = list.test
         while(temp is not ptr):
             temp = temp.next
             ptr = ptr.next

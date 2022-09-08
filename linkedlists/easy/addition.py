@@ -101,7 +101,7 @@ class LinkedList:
 
         result = LinkedList()
         # recursive function to add
-        self._add_helper_(self.head,y.head,result)
+        self._add_helper_(self.head, y.test, result)
         return result
 
     # reverse
@@ -119,8 +119,8 @@ class LinkedList:
     def add_using_reverse(self,x,y):
         x.reverse()
         y.reverse()
-        xh = x.head
-        yh = y.head
+        xh = x.test
+        yh = y.test
         carry = 0 
         while xh is not None and yh is not None:
             node = Node((xh.data + yh.data + carry) % 10)
