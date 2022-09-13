@@ -7,8 +7,6 @@ Depth First Traversals:
 Time Complexity: O(n) 
 S = recursive stack memory = O(h) where h is the height of the tree.
 
- TODO: Morris Traversal
- https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
 """
  
 class Node:
@@ -17,25 +15,25 @@ class Node:
         self.right = None
         self.val = key
   
-def printInorder(root):
+def inorder(root):
     if root:
-        printInorder(root.left)
+        inorder(root.left)
         print(root.val,end=' ')
-        printInorder(root.right)
+        inorder(root.right)
   
-def printPostorder(root):
+def postorder(root):
     if root:
-        printPostorder(root.left)
-        printPostorder(root.right)
+        postorder(root.left)
+        postorder(root.right)
         print(root.val,end=' ')
   
-def printPreorder(root):
+def preorder(root):
     if root:
         print(root.val,end=' ')
-        printPreorder(root.left)
-        printPreorder(root.right)
+        preorder(root.left)
+        preorder(root.right)
 
-def iterativePreorder(root):
+def iterative_preorder(root):
     if root is None:
         return
     nodeStack = []
@@ -48,7 +46,39 @@ def iterativePreorder(root):
             nodeStack.append(node.right)
         if node.left is not None:
             nodeStack.append(node.left)
-  
+
+def iterative_inorder(root):
+    current = root
+    stack = []
+    while True:
+        if current is not None:
+            stack.append(current)
+            current = current.left
+        # BackTrack visit the Node at the top of the stack
+        elif stack:
+            current = stack.pop()
+            print(current.val, end=" ")
+            current = current.right
+        else:
+            break
+
+def iterative_inorder_2(root):
+    stack = []
+    temp = root
+    while True:
+        while temp:
+            stack.append(temp)
+            temp = temp.left
+        if stack:
+            temp = stack.pop()
+            print(temp.val, end=' ')
+            temp = temp.right
+        else:
+            break
+
+def iterative_postorder(root):
+    pass
+
 # Driver code
 root = Node(1)
 root.left = Node(2)
@@ -56,13 +86,22 @@ root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
 print("preorder")
-printPreorder(root)
+preorder(root)
 print()
 print("iterative preorder")
-iterativePreorder(root)
+iterative_preorder(root)
 print()
 print("inorder")
-printInorder(root)
+inorder(root)
+print()
+print("iterative inorder")
+iterative_inorder(root)
+print()
+print("iterative inorder 2")
+iterative_inorder_2(root)
 print()
 print("postorder")
-printPostorder(root)
+postorder(root)
+print()
+print("iterative postorder")
+iterative_postorder(root)
