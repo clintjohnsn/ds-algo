@@ -84,3 +84,38 @@ print(Solution().merge([[2,4],[1,1]])) # [[2,4],[1,1]]
 print(Solution().merge([[2,3],[5,5],[2,2],[3,4]])) # [[2,4],[5,5]]
 print(Solution().merge([[2,3],[2,2],[3,3],[1,3],[5,7],[2,2],[4,6]])) # [[1,3],[4,7]]
 print(Solution().merge([[1,4],[2,3]])) # [[1,3],[4,7]]
+
+"""
+Leetcode 435 
+Given an array of intervals intervals where intervals[i] = [starti, endi], 
+return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+Output: 1
+Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
+
+"""
+
+
+class Solution:
+    def erase_overlap_intervals(self, intervals:list[list[int]]) -> int:
+        intervals.sort()
+        count = 0
+        for i in range(len(intervals)-1):
+            if intervals[i+1][0] < intervals[i][1]:
+                count += 1
+                # take the interval that ends earlier, reduce the no of possible overlaps
+                # not the thinner interval
+                if intervals[i][1] < intervals[i+1][1]:
+                    intervals[i + 1] = intervals[i]
+        return count
+
+
+# Tests
+print("---------------------------------")
+print(Solution().erase_overlap_intervals( [[1,2],[2,3],[3,4],[1,3]])) # 1
+print(Solution().erase_overlap_intervals( [[1,2],[1,2],[1,2]])) # 2
+print(Solution().erase_overlap_intervals( [[1,2],[2,3]])) # 0
+print(Solution().erase_overlap_intervals( [[-52,31],[-73,-26],[82,97],[-65,-11],[-62,-49],[95,99],[58,95],[-31,49],[66,98],[-63,2],[30,47],[-40,-26]])) # 7
+
+

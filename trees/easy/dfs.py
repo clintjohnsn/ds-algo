@@ -76,8 +76,40 @@ def iterative_inorder_2(root):
         else:
             break
 
+"""
+iterative postorder
+https://www.geeksforgeeks.org/iterative-postorder-traversal/?ref=lbp
+
+postorder = reverse order of a preorder traversal, with right subtree processing before left subtree processing
+D, R, L
+
+                1
+        2              3
+    4       5       6       7
+    
+postorder = L,R,D = 4,5,2,6,7,3,1
+reverse  = 1,3,7,6,2,5,4
+
+use a stack to reverse the iterative preorder
+iterative preorder itself uses a stack
+"""
+
+
 def iterative_postorder(root):
-    pass
+    stack = list()
+    postorder = list()
+    stack.append(root)
+    while stack:
+        node = stack.pop()
+        postorder.append(node)
+        if node.left:
+            stack.append(node.left)
+        if node.right:
+            stack.append(node.right)
+    while postorder:
+        print(postorder.pop().val, end=' ')
+
+
 
 # Driver code
 root = Node(1)
