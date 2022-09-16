@@ -11,9 +11,12 @@ Output: true
 1,2,3
 
 """
-nums = [4,1,5,2,3]
-nums2 = [2,1,5,0,4,6]
 
+"""
+recursive solution
+TODO: time and space complexity for this 
+( > O(N) )
+"""
 class Solution:
     def increasingSub(self, nums:list[int], i:int, k:int, val:int):
         if k == 0:
@@ -28,27 +31,80 @@ class Solution:
     def increasingTriplet(self, nums: list[int]) -> bool:
         return self.increasingSub(nums,0,3,float("-inf"))
 
-    # memoize
-    #
-    def increasingSubMem(self, mem:list[int], nums: list[int], i: int, k: int):
-        if k == 0:
-            return True
-        if i == len(nums):
-            return False
-        if nums[i] > mem[k]:
-            return self.increasingSubMem(mem, nums, i + 1, k - 1) or self.increasingSubMem(mem, nums, i + 1, k)
-        else:
-            return self.increasingSubMem(mem, nums, i + 1, k)
-
-    def increasingTripletMem(self, nums: list[int]) -> bool:
-        mem = [0] * 3
-        return self.increasingSubMem(mem, nums, 0, 2)
+print(Solution().increasingTriplet([4,1,5,2,3])) # True
+print(Solution().increasingTriplet([2,1,5,0,4,6])) # True
+print(Solution().increasingTriplet([6,5,4,3,2])) #False
+print(Solution().increasingTriplet([1,2,3,4,5])) # True
+print(Solution().increasingTriplet([1,5,0,4,1,3])) #True
+print(Solution().increasingTriplet([1,5,0,4,2,1])) # False
 
 
-print(Solution().increasingTriplet([4,1,5,2,3]))
-print(Solution().increasingTriplet([2,1,5,0,4,6]))
-print(Solution().increasingTriplet([6,5,4,3,2]))
-print(Solution().increasingTriplet([1,2,3,4,5]))
-print(Solution().increasingTriplet([1,5,0,4,1,3]))
+
+"""
+approach 2
+
+T= O(N)
+S = O(N)
+
+track the minimum element reachable to the left of an element and the max element reachable to the right
+"""
+
+class Solution:
+
+    def increasingTriplet(self, nums: list[int]) -> bool:
+        left_min = [-1] * len(nums)
+        right_max = [-1] * len(nums)
+        left_min[0] = nums[0]
+        for i in range(1,len(nums)):
+            if nums[i] < left_min[i-1]:
+                left_min[i] = nums[i]
+            else:
+                left_min[i] =  left_min[i-1]
+        right_max[len(right_max)-1] = nums[len(nums)-1]
+        for i in range(len(nums)-2,-1,-1):
+            if nums[i] > right_max[i + 1]:
+                right_max[i] = nums[i]
+            else:
+                right_max[i] = right_max[i + 1]
+        for i in range(len(nums)):
+            if left_min[i] < nums[i] < right_max[i]:
+                return True
+        return False
 
 
+print("-------------")
+print(Solution().increasingTriplet([4, 1, 5, 2, 3]))  # True
+print(Solution().increasingTriplet([2, 1, 5, 0, 4, 6]))  # True
+print(Solution().increasingTriplet([6, 5, 4, 3, 2]))  # False
+print(Solution().increasingTriplet([1, 2, 3, 4, 5]))  # True
+print(Solution().increasingTriplet([1, 5, 0, 4, 1, 3]))  # True
+print(Solution().increasingTriplet([1, 5, 0, 4, 2, 1]))  # False
+
+"""
+O(1) space 
+O(n) time
+
+two variables holding possible i and j
+
+"""
+
+class Solution:
+    def increasingTriplet(self, nums: list[int]) -> bool:
+        i,j = nums[0], float("inf")
+        for k in range(1,len(nums)):
+            if nums[k] < i:
+                i = nums[k]
+            elif nums[k] > j:
+                return True
+            elif i < nums[k] < j:
+                j = nums[k]
+        return False
+
+
+print("-------------")
+print(Solution().increasingTriplet([4, 1, 5, 2, 3]))  # True
+print(Solution().increasingTriplet([2, 1, 5, 0, 4, 6]))  # True
+print(Solution().increasingTriplet([6, 5, 4, 3, 2]))  # False
+print(Solution().increasingTriplet([1, 2, 3, 4, 5]))  # True
+print(Solution().increasingTriplet([1, 5, 0, 4, 1, 3]))  # True
+print(Solution().increasingTriplet([1, 5, 0, 4, 2, 1]))  # False

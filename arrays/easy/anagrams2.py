@@ -10,22 +10,28 @@ Output: [[""]]
 """
 method 1
 sorted
-Time Complexity: O(NK \log K)O(NKlogK), where NN is the length of strs, and KK is the maximum length of a string in strs. The outer loop has complexity O(N)O(N) as we iterate through each string. Then, we sort each string in O(K \log K)O(KlogK) time.
+Time Complexity:O(NKlogK), where N is the length of strs, and K is the maximum length of a string in strs. 
+The outer loop has complexity O(N) as we iterate through each string. 
+Then, we sort each string in O(KlogK) time.
 
-Space Complexity: O(NK)O(NK), the total information content stored in ans.
+Space Complexity: O(NK), the total information content stored in ans.
 """
 
 
 """
 method 2
 We can transform each string s into a character count, 
-count, consisting of 26 non-negative integers representing the number of a's, b's, c's, etc. We use these counts as the basis for our hash map.
+count, consisting of 26 non-negative integers representing the number of a's, b's, c's, etc.
+ We use these counts as the basis for our hash map.
 
-count will be a string delimited with '#' characters. For example, abbccc will be #1#2#3#0#0#0...#0 where there are 26 entries total.
-or the representation will be a tuple of the counts. For example, abbccc will be (1, 2, 3, 0, 0, ..., 0), where again there are 26 entries total.
-Time Complexity: O(NK)O(NK), where NN is the length of strs, and KK is the maximum length of a string in strs. Counting each string is linear in the size of the string, and we count every string.
+count will be a string delimited with '#' characters. 
+For example, abbccc will be #1#2#3#0#0#0...#0 where there are 26 entries total.
+or the representation will be a tuple of the counts.
+ For example, abbccc will be (1, 2, 3, 0, 0, ..., 0), where again there are 26 entries total.
+Time Complexity: O(NK) where N is the length of strs, and K is the maximum length of a string in strs.
+ Counting each string is linear in the size of the string, and we count every string.
 
-Space Complexity: O(NK)O(NK), the total information content stored in ans.
+Space Complexity: O(NK), the total information content stored in ans.
 """
 
 strs = ["eat","tea","tan","ate","nat","bat"]
