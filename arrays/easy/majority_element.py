@@ -2,7 +2,7 @@
 The majority element is the element that appears more than ⌊n/2⌋ times.
 even number n , eg 6 - > 6//2 > 3  atleast 4 times
 odd number n, eg 7,  > 7//2 > 3  atleast 4
- You may assume that the majority element always exists in the array.
+You may assume that the majority element always exists in the array.
 
 """
 
@@ -71,7 +71,7 @@ print(Solution().majorityElement(test))
 
 
 """
-bit manipulation
+TODO: bit manipulation
 If an element majority_element occurs more than n//2 times, 
 then there are at least n//2 elements of identical values with num at each bit.
 That is, we can reconstruct the exact value of num by combining the most frequent value (0 or 1) at each bit.
@@ -81,12 +81,8 @@ Finally, we end up with the most least significant bit of all elements and retur
 
 Time complexity : O(n * logC) where C is the max possible value
 Space = O(1)
-"""
-class Solution:
-    def majorityElement(self, nums: list[int]) -> int:
-        pass
 
-print(Solution().majorityElement(test))
+"""
 
 """
 Randomization
@@ -112,9 +108,54 @@ print(Solution().majorityElement(test))
 """
 Boyer-Moore Voting Algorithm
 
-"""
++1 for every majority element, -1 for non-majority element
 
+maintain a count, which is incremented whenever we see an instance of our current candidate 
+for majority element and decremented whenever we see anything else.
+ Whenever count equals 0, we effectively forget about everything in nums up to the current index 
+ and consider the current number as the candidate for majority element
+ 
+it is impossible to discard more majority elements than minority elements
+ T = O(N)
+ S = O(1)
+"""
+class Solution:
+    def majorityElement(self, nums):
+        count = 0
+        majority = nums[0]
+        for num in nums:
+            if count == 0:
+                majority = num
+            if num == majority:
+                count += 1
+            else:
+                count -= 1
+        return majority
+
+print(Solution().majorityElement(test))
 
 """
 challenge  = Given an integer array of size n, find all elements that appear more than ⌊n/3⌋ times.
 """
+print("---------------------")
+
+class Solution:
+    def majorityElement(self, nums):
+        majority, majority_count = nums[0], 0
+        candidate, candidate_count = nums[0], 0
+        rest = 0
+        for num in nums[1:]:
+            if majority_count * 2 < rest + candidate_count:
+                majority = candidate
+                majority_count = candidate_count
+            if candidate_count == rest:
+                candidate = num
+            if num == majority:
+                majority_count +=1
+            else:
+                if num == candidate:
+                    candidate_count+=1
+                else:
+                    rest +=1
+
+        return majority
