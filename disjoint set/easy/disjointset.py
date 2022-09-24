@@ -12,6 +12,7 @@ class DisjointSet:
       # so we recursively call Find on its parent and move i's node directly under the representative of this set
       self.parent[x] = self.find(self.parent[x])
     return self.parent[x]
+# update rank?
 
   # Do union of two sets represented
   # by x and y.

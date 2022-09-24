@@ -3,8 +3,6 @@
 
 # TODO: this
 
-from turtle import st
-
 
 def increasing_subseq(arr):
     s = arr[0]
