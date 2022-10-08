@@ -27,3 +27,20 @@ def tree(bfs: list[int | None ]) -> TreeNode | None:
                 j += 1
         i += 1
     return bfs[0]
+
+from collections import  deque
+def print_tree(root:TreeNode) -> None:
+    """
+    bfs representation of tree
+    """
+    if not root:
+        return list()
+    result = list()
+    q = deque()
+    q.append(root)
+    while q:
+        node = q.popleft()
+        result.append(node.val if node else None)
+        if node:
+            q.extend([node.left, node.right])
+    print(result)
