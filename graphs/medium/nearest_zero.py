@@ -1,5 +1,6 @@
 """
 Leetcode 542
+01 matrix
 
 Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
 The distance between two adjacent cells is 1.
@@ -15,7 +16,9 @@ Output:         [[0,0,0],
 
 """
 
-
+"""
+naive/bruteforce
+"""
 class Solution:
 
     def dist(self, mat: list[list[int]],out: list[list[int]], i: int, j: int):
@@ -65,3 +68,7 @@ for i in range(len(mat2)):
     print()
     for j in range(len(mat2[i])):
         print(mat2[i][j],end=' ')
+
+"""
+DP
+"""
