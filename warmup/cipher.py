@@ -1,8 +1,7 @@
-# EASY
 #basic caeser cypher
 l= []
-st = input()
-no = int(input())
+st = input() # string to be converted
+no = int(input()) # no of letters to be shifted
 for i in st:
     if (ord(i)>=ord('a') and ord(i) <= ord('z')):
         k = (ord(i) - ord('a') + no ) % 26 + ord('a')

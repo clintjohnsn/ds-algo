@@ -1,4 +1,3 @@
-# EASY
 # replace every character in string with the closest prime ASCII value
 
 def findClosestPrime(c):
@@ -10,7 +9,7 @@ def findClosestPrime(c):
             return b
         elif isPrime(f):
             return f
-        elif b < 67:
+        elif b < 67: #limits
             return 67
         elif f > 113:
             return 113
@@ -23,10 +22,10 @@ def isPrime(c):
             return False
     return True
 
-T = int(input())
+T = int(input()) #no of strings
 for t in range(T):
-    N = int(input())
-    st = input()
+    N = int(input()) #length of string
+    st = input() #string
     l = []
     for c in st:
         c = ord(c)

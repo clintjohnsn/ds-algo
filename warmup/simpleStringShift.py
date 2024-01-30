@@ -1,4 +1,4 @@
-# EASY
+# shift a string k chars
 s = input()
 k =int(input())
 shiftedString = []

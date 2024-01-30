@@ -1,6 +1,7 @@
-# Given two integers x and n, write a function to compute x^n.
-# x * x .. n times = T : O(n)
+# Given two integers x and n, write a function to compute x^n (without using math power functions)
+# simple for loop and multiplication -> x * x .. n times = T : O(n)
 
+# recursive way
 
 def power(x, y):
     if(y == 0): return 1

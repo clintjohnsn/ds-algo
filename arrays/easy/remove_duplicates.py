@@ -3,7 +3,9 @@
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place
 such that each unique element appears only once. The relative order of the elements should be kept the same.
 
- if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result.
+ if there are k elements after removing the duplicates, 
+ then the first k elements of nums array should hold the final result.
+ 
  return k
  no extra space allowed
 """
