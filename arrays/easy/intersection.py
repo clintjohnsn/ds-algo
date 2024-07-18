@@ -1,4 +1,6 @@
 """
+LeetCode 349
+
 Given two integer arrays nums1 and nums2, return an array of their intersection.
 Each element in the result must appear as many times as it shows in both arrays
 and you may return the result in any order.
@@ -12,11 +14,16 @@ Output: [4,9] or [9,4]
 """
 
 """
-set intersection doesnt work here because of existence of duplicates.
-set intersection is simply checking if present in the other set, so takes O(n) time
+set intersection doesn't work here because of existence of duplicates.
+set intersection is simply putting all the elements from an array in a set,
+and checking any element from the second array is present in the set, 
+so should take O(n) time
 
-brute force solution is O(n^2), as checking for presence is O(n) itself
+brute force solution has a time complexity of  O(n^2), 
+as checking for presence in unordered list is O(n)
+"""
 
+"""
 Approach 1
 using hashmaps, reduce time to O(n) but space increases to O(n)
 Time: O(M + N)
@@ -27,15 +34,15 @@ from collections import  defaultdict
 
 class Solution:
     def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]:
-        if len(nums1) > len(nums2):
-            return self.intersect(nums2,nums1)
+        if len(nums1) < len(nums2):
+            return self.intersect(nums2,nums1) # force param 1 to be the longer array
         hm = defaultdict(int)
         for num in nums1:
-            hm[num] += 1
+            hm[num] += 1 # count of elements
         output = []
         for num in nums2:
             if hm[num] > 0:
-                hm[num] -=1
+                hm[num] -=1 # mark as used
                 output.append(num)
         return output
 
@@ -49,7 +56,6 @@ T = O(MlogM + NlogN, S = O(1)
 better if arrays are already sorted, O(n) time and O(1) space 
 
 """
-
 
 class Solution:
     def intersect(self, nums1: list[int], nums2: list[int]) ->list[int]:
@@ -71,6 +77,11 @@ class Solution:
 print("------------")
 print(Solution().intersect( [1,2,2,1],[2,2] )) # [2,2]
 print(Solution().intersect( [4,9,5],[9,4,9,8,4])) # [9,4]
+
+
+"""
+If final output requires only unique elements, convert the answer to a set
+"""
 
 """
 If neither nums1 nor nums2 fits into the memory, 

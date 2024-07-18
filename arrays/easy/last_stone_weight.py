@@ -20,21 +20,28 @@ we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
 we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
 
 """
-import  heapq
+import  heapq # min heap
 class Solution:
     def lastStoneWeight(self, stones: list[int]) -> int:
-        maxheap = [-stone for stone in stones]
-        heapq.heapify(maxheap)
+        maxheap = [-stone for stone in stones] # convert min heap to max heap
+        heapq.heapify(maxheap) # put all elements in max heap
         while len(maxheap) > 1:
             smash = (heapq.heappop(maxheap) - heapq.heappop(maxheap))
             if smash != 0:
-                heapq.heappush(maxheap,smash)
-        if maxheap:
+                heapq.heappush(maxheap,smash) # if anything remains put it back
+        if maxheap: # if any remaining value (max 1)
             return -maxheap[0]
-        else:
+        else: # no values remain
             return 0
 
 # Driver
 stones = [2, 7, 4, 1, 8, 1]
 print(Solution().lastStoneWeight(stones))
 print(Solution().lastStoneWeight([2,2]))
+
+"""
+S- O(N)
+T - average O(NLogN) ??
+heapifying takes O(N), taking the largest 2 out takes O(log N), 
+and then this repeated until nothing remains -> this can be >> n
+"""

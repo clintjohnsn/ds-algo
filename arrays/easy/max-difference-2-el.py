@@ -1,6 +1,7 @@
-# Python 3 code to find Maximum difference
-# between two elements such that larger
-# element appears after the smaller number
+# Leetcode 2016 
+
+# https://leetcode.com/problems/maximum-difference-between-increasing-elements/description/
+# find Maximum difference between two elements such that larger element appears after the smaller number
 
 def maxDiff(arr, arr_size):
     max_diff = arr[1] - arr[0]

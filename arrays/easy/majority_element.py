@@ -1,4 +1,6 @@
 """
+Leetcode 169. Majority Element
+
 The majority element is the element that appears more than ⌊n/2⌋ times.
 even number n , eg 6 - > 6//2 > 3  atleast 4 times
 odd number n, eg 7,  > 7//2 > 3  atleast 4

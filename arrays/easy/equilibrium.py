@@ -37,7 +37,11 @@ def bruteforce(ar):
     else:
         print(-1)
 
+
+
 """
+Make 2 cumulative sum arrays from left and right and reverse the right. 
+The index where the cumulative sums is the required index
 T-O(N) S-O(1) Solution
 
 """
