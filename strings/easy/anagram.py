@@ -1,3 +1,6 @@
+# Leetcode: 242. Valid Anagram
+# https://leetcode.com/problems/valid-anagram/
+
 # An anagram of a string is another string that contains same characters, only the order of characters can be different.
 
 # method 1 : sort and compare
@@ -37,6 +40,6 @@ def areAnagram(str1, str2):
 str1 = "aaca"
 str2 = "acaa"
 if areAnagram(str1, str2):
-    print "The two strings are anagram of each other"
+    print("The two strings are anagram of each other")
 else:
-    print "The two strings are not anagram of each other"
+    print("The two strings are not anagram of each other")

@@ -55,6 +55,8 @@ print (g.countIslands())
 
 """
 Leetcode 200
+https://leetcode.com/problems/number-of-islands/
+
 count no of islands
 horizontal + vertical connection only
 

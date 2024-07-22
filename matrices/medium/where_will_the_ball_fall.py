@@ -1,5 +1,6 @@
 """
 Leetcode 1706
+https://leetcode.com/problems/where-will-the-ball-fall/
 
 You have a 2-D grid of size m x n representing a box, and you have n balls.
 The box is open on the top and bottom sides.

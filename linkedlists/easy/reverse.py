@@ -1,4 +1,6 @@
 # reverse a linked list
+# Leetcode 206
+# https://leetcode.com/problems/reverse-linked-list/
 
 # METHOD 1 using stack
 # TODO: impl

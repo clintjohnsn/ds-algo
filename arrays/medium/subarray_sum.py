@@ -1,3 +1,6 @@
+# Leetcode 560
+# https://leetcode.com/problems/subarray-sum-equals-k/
+
 # Given an unsorted array of non-negative integers, find a continuous sub-array which adds to a given sum.
 def subarray_sum(arr,s):
     rs = 0

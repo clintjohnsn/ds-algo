@@ -1,7 +1,3 @@
-from collections import defaultdict
-from errno import E2BIG
-
-
 """
 Find the smallest window in a string containing all characters of another string
 Eg

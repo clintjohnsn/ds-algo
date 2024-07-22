@@ -1,3 +1,5 @@
+# https://www.hackerrank.com/challenges/frequency-queries/problem
+
 # You are given q queries. Each query is of the form two integers described below:
 # -  1x: Insert x in your data structure.
 # -  2y: Delete one occurence of y from your data structure, if present.

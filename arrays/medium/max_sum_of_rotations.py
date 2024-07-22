@@ -1,5 +1,7 @@
 """
 
+Leetcode: 396. Rotate Function
+https://leetcode.com/problems/rotate-function/
 
 Given an array arr[] of n integers, find the rotation that maximizes the sum of the value of i*arr[i] where i varies from 0 to n-1.
 

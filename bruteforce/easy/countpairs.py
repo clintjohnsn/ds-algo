@@ -1,4 +1,6 @@
-#  Given an array of integers 
+# Leetcode: 1512
+# https://leetcode.com/problems/number-of-good-pairs/ 
+# Given an array of integers 
 #  representing the color of each sock, determine how many pairs of socks with matching colors there are.
 
 def sockMerchant(n, ar):

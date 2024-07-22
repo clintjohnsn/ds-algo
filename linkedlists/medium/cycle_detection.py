@@ -1,4 +1,7 @@
 """
+LeetCode 142. Linked List Cycle II
+https://leetcode.com/problems/linked-list-cycle-ii/
+
 Write a function that checks whether a given Linked List contains a loop 
 and if the loop is present then removes the loop and returns true. 
 If the list doesn’t contain a loop then it returns false. 

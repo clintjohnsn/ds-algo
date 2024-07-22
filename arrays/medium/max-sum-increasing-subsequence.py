@@ -1,3 +1,6 @@
+# Leetcode: 300
+# Longest Increasing Subsequence
+# https://leetcode.com/problems/longest-increasing-subsequence/
 # Given an array of n positive integers. Write a program to find the sum of maximum sum subsequence of the given array
 # such that the integers in the subsequence are sorted in increasing order.
 

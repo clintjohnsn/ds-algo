@@ -1,5 +1,7 @@
 """
 Leetcode 542
+https://leetcode.com/problems/01-matrix/
+
 01 matrix
 
 Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.
@@ -72,3 +74,5 @@ for i in range(len(mat2)):
 """
 DP
 """
+
+# TODO: implement DP solution

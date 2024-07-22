@@ -1,5 +1,6 @@
 """
 Leetcode 299
+https://leetcode.com/problems/bulls-and-cows/
 
 You write down a secret number and ask your friend to guess what the number is.
 The number of "bulls", which are digits in the guess that are in the correct position.

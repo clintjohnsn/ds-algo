@@ -1,3 +1,6 @@
+# Leetcode: 1209
+# https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/
+
 # Reduce the string by removing K consecutive identical characters
 
 # Input: K = 3, str = “qddxxxd” 

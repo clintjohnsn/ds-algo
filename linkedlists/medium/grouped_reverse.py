@@ -1,3 +1,6 @@
+# Leetcode: 25
+# https://leetcode.com/problems/reverse-nodes-in-k-group/
+
 # Given a linked list, write a function to reverse every k nodes 
 # Input: 1->2->3->4->5->6->7->8->NULL, K = 3 
 # Output: 3->2->1->6->5->4->8->7->NULL 

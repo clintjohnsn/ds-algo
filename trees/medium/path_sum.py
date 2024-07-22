@@ -1,6 +1,8 @@
 """
 
 Leetcode 112 (easy)
+https://leetcode.com/problems/path-sum/
+
 Given the root of a binary tree and an integer targetSum, return true
 if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
 
@@ -33,6 +35,8 @@ print("-------------------------------------")
 
 """
 Leetcode 113 (medium)
+https://leetcode.com/problems/path-sum-ii/
+
 Given the root of a binary tree and an integer targetSum,
  return all root-to-leaf paths where the sum of the node values in the path equals targetSum. 
 Each path should be returned as a list of the node values, not node references.

@@ -1,5 +1,7 @@
 """
 Leetcode 763 Partition Labels
+https://leetcode.com/problems/partition-labels/
+
 given a string s.
 We want to partition the string into as many parts as possible so that each letter appears in at most one part.
 

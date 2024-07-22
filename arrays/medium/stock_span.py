@@ -1,3 +1,6 @@
+# Leetcode: 901. Online Stock Span
+# https://leetcode.com/problems/online-stock-span/
+
 # https://www.geeksforgeeks.org/the-stock-span-problem/
 # The stock span problem is a financial problem where we have a series of n daily price quotes 
 # for a stock and we need to calculate the span of the stock’s price for all n days.

@@ -1,5 +1,6 @@
 """
 Leetcode 394
+https://leetcode.com/problems/decode-string/
 
 Given an encoded string, return its decoded string.
 

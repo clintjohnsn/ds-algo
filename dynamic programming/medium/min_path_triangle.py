@@ -1,5 +1,6 @@
 """
 Leetcode 120
+https://leetcode.com/problems/triangle/
 
 Given a triangle array, return the minimum path sum from top to bottom.
 

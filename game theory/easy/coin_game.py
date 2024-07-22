@@ -31,3 +31,4 @@ from n%3=0, only can go to n %3 =0 state ; -> 0 -> Losing state
 
 so p1 wins if n%3>0
 ''''
+# TODO

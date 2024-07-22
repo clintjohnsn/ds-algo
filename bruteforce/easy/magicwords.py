@@ -1,4 +1,6 @@
 # replace every character in string with the closest prime ASCII value
+# Leetcode 1977
+# https://leetcode.com/problems/closest-prime/
 
 def findClosestPrime(c):
     dif = 1
