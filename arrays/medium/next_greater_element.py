@@ -9,7 +9,7 @@
 #  answer = [5,25,25,-1]
 
 # method:
-# similar to stock span 
+# similar to stock span (monotonic stack)
 # for i, if h(i) is the next greater element, maintain a stack i, h(i), h(h(i))
 # start from reverse, maintain the greater element that stopped i 
 # T:O(N) S:O(N)

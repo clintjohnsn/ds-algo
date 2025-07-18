@@ -87,7 +87,12 @@ print(Solution().increasingTriplet([1, 5, 0, 4, 2, 1]))  # False
 O(1) space 
 O(n) time
 
-two variables holding possible i and j
+two variables holding possible i and j, while looking for k
+i  smallest: store the smallest number encountered so far in the array 
+that could be the first element of our increasing triplet.
+
+j middle: This variable will store the smallest number encountered so far that is greater than smallest
+and could be the second element of our increasing triplet.
 
 """
 
@@ -98,7 +103,7 @@ class Solution:
             if nums[k] < i:
                 i = nums[k]
             elif nums[k] > j:
-                return True
+                return True # found THE k
             elif i < nums[k] < j:
                 j = nums[k]
         return False

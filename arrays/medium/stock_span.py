@@ -12,7 +12,7 @@
 # Output: 1 1 1 2 1 4 6
 # Explanation: Traversing the given input span for 100 will be 1, 80 is smaller than 100 so the span is 1, 60 is smaller than 80 so the span is 1, 70 is greater than 60 so the span is 2 and so on. Hence the output will be 1 1 1 2 1 4 6.
 
-# Method , using stack, T- O(n), S= O(n)
+# Method , using monotonic stack, T- O(n), S= O(n)
 # We see that S[i] on the day i can be easily computed if we know the closest day preceding i, 
 # such that the price is greater than on that day than the price on the day i. let’s call it h(i)
 # The span is now computed as S[i] = i – h(i)
@@ -49,3 +49,28 @@ ar1 =  [100, 80, 60, 70, 60, 75, 85] # 1 1 1 2 2 4 6
 ar2 = [10, 4, 5, 90, 120, 80] # 1 1 2 4 5 1 
 print(stock_span(ar1,len(ar1)))
 print(stock_span(ar2,len(ar2)))
+
+# alt, with class and simpler
+class StockSpanner:
+
+    def __init__(self):
+        self.stk = []
+        self.arr = []
+        self.n = -1
+
+    def next(self, price: int) -> int:
+        self.arr.append(price)
+        self.n +=1
+        while(self.stk and self.arr[self.stk[-1]] <= price):
+            self.stk.pop()
+        span = self.n - self.stk[-1] if self.stk else self.n + 1
+        self.stk.append(self.n)
+        return span
+
+
+# monotonic stack
+# Your StockSpanner object will be instantiated and called as such:
+# obj = StockSpanner()
+# param_1 = obj.next(price)
+# in   1 7 2 1 2 2
+# out  1 2 1 1 3 4

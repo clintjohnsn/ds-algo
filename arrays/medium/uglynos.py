@@ -64,3 +64,31 @@ for i in range(1,n):
 print(uglynos[-1])
 #space = O(n)
 # time = O(n) or O(nk) k =3
+
+
+# -------------
+"""
+METHOD 3
+An ugly number must be multiplied by either 2, 3, or 5 from a smaller ugly number.
+The key is how to maintain the order of the ugly numbers. 
+similar to merging from three sorted lists: L1, L2, and L3.
+
+Assume you have Uk, the kth ugly number. Then Uk+1 must be Min(L1 * 2, L2 * 3, L3 * 5).
+"""
+
+from collections import deque
+
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
+        out = [1]
+        l1 ,l2, l3 = deque(), deque(), deque()
+        for _ in range(n-1):
+            l1.append(out[-1] * 2)
+            l2.append(out[-1] * 3)
+            l3.append(out[-1] * 5)
+            nxt = min(l1[0], l2[0], l3[0])
+            out.append(nxt)
+            for l in [l1,l2,l3]:
+                if l[0] == nxt:
+                    l.popleft()
+        return out[-1]
